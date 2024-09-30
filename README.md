@@ -1,12 +1,12 @@
 # Ex02 Django ORM Web Application
-## Date: 12-03-2024
+## Date: 30-09-2024
 
 ## AIM
-To develop a Django application to store and retrieve data from a Book database using Object Relational Mapping(ORM).
+To develop a Django application to store and retrieve data from a Bank database using Object Relational Mapping(ORM).
 
 ## Entity Relationship Diagram
 
-![image](https://github.com/Yuvazay/ORM/assets/151486377/20bcf0d5-6ed7-4662-8ac3-2b16ad1f1dd3)
+![image](https://github.com/user-attachments/assets/bd3ec789-80bb-421e-8c8b-961b16285ec8)
 
 
 ## DESIGN STEPS
@@ -21,35 +21,36 @@ Create a new app in Django project
 Enter the code for admin.py and models.py
 
 ### STEP 4:
-Execute Django admin and create details for 10 books
+Execute Django admin and create details for 10 customers.
 
 ## PROGRAM
-
-ADMIN.PY
+admin.py
 ```
 from django.contrib import admin
-from .models import BOOK,BOOKAdmin
-admin.site.register(BOOK,BOOKAdmin)
-
+from .models import Employee,EmployeeAdmin
+admin.site.register(Employee,EmployeeAdmin)
 ```
-MODELS.PY
+models.py
 ```
 from django.db import models
 from django.contrib import admin
-class BOOK(models.Model):
-    BOOKNUM=models.CharField(max_length=50,primary_key=True);
-    TITLE=models.IntegerField();
-    AUTHOR=models.CharField(max_length=50);
-    DATE=models.CharField(max length=50);
-    PRICE=models.DecimalField(max_digits=10,decimal_places=True);
-    
-class BOOKAdmin(admin.ModelAdmin):
-    list_display=("BOOKNUM","TITLE","AUTHOR","DATE","PRICE");
-```
+class Employee (models.Model):
+    eid=models.IntegerField(primary_key=True)
+    name=models.CharField(max_length=100)
+    salary=models.IntegerField()
+    age=models.IntegerField()
+    email=models.EmailField()
+ 
+class EmployeeAdmin(admin.ModelAdmin):
+    list_display=('eid','name','salary','age','email')
 
+
+```
 ## OUTPUT
 
-![alt text](34c326fa-7936-4975-b600-83baa31d815b.jpg)
+![Screenshot 2024-09-26 114644](https://github.com/user-attachments/assets/848f2297-4623-4841-8127-77e6c053849e)
+
+
 
 ## RESULT
 Thus the program for creating a database using ORM hass been executed successfully

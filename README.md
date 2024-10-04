@@ -6,8 +6,7 @@ To develop a Django application to store and retrieve data from a Bank database 
 
 ## Entity Relationship Diagram
 
-![image](https://github.com/user-attachments/assets/bd3ec789-80bb-421e-8c8b-961b16285ec8)
-
+![alt text](image.png)
 
 ## DESIGN STEPS
 
@@ -24,33 +23,34 @@ Enter the code for admin.py and models.py
 Execute Django admin and create details for 10 customers.
 
 ## PROGRAM
-admin.py
+
+admin.py:
 ```
 from django.contrib import admin
-from .models import Employee,EmployeeAdmin
-admin.site.register(Employee,EmployeeAdmin)
+from .models import Bankloan, BankloanAdmin  
+admin.site.register(Bankloan, BankloanAdmin)
 ```
-models.py
+models.py:
 ```
 from django.db import models
 from django.contrib import admin
-class Employee (models.Model):
-    eid=models.IntegerField(primary_key=True)
-    name=models.CharField(max_length=100)
-    salary=models.IntegerField()
-    age=models.IntegerField()
-    email=models.EmailField()
- 
-class EmployeeAdmin(admin.ModelAdmin):
-    list_display=('eid','name','salary','age','email')
+from django.db import models
+from django.contrib import admin
 
+class Bankloan(models.Model):
+    customerid= models.IntegerField(primary_key=True)
+    customerrate = models.IntegerField()
+    age = models.IntegerField()  
+    cust_no = models.IntegerField()
+    customerloan_purpose =models.CharField(max_length=500)
 
+class BankloanAdmin(admin.ModelAdmin):
+    list_display = ('customerid', 'customerrate', 'age', 'cust_no', 'customerloan_purpose')
 ```
+
 ## OUTPUT
 
-![image](https://github.com/user-attachments/assets/9a06bb5d-9d95-4ffe-a46d-69d5fb8d22b1)
-
-
+![alt text](<Screenshot 2024-09-30 153817.png>)
 
 
 ## RESULT
